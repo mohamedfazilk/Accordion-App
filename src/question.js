@@ -1,15 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 
-function question({ info, title }) {
+
+const Question = ({ info, title }) => {
+    const [showread, setShowRead] = useState(false)
     return (
-        <article>
-            <div>
-                <h3>{title}</h3>
-                <p>{info}</p>
-            </div>
+        <article className='question'>
+            <header>
+                <h4>{title}</h4>
+                <button onClick={() => setShowRead(!showread)} className='btn'>
+                    {showread ? <AiOutlineMinus/> : <AiOutlinePlus/>}</button>
+            </header>
+            {/* //use can use either two methods // */}
+            {showread && <p>{info}</p>}
+            {/* <p>{showread ? info : null} </p> */}
         </article>
 
     )
 }
 
-export default question
+export default Question;

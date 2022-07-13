@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react'
 import data from './data'
-import question from './question';
-import Single from './question'
+
+import Question from './Question'
 
 function App() {
 
@@ -15,7 +15,7 @@ function App() {
         <h2>My Questions</h2>
         <section className='info'>
           {userDetail.map((detail) => {
-            return <Single key={detail.id} {...detail}/>
+            return <Question key={detail.id} {...detail}/>
 
           })}
 
